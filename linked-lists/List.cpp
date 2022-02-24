@@ -11,20 +11,16 @@ List::~List() {
 }
 
 void List::insert(std::string data) {
-    //create a new node
+    
     Node *new_node = new Node(data);
 
-    //insert the new node
-    //head->setNext(new_node);
+    
     new_node->setNext(head);
     head = new_node;
 }
 
 std::string List::toString() {
-    // if(head == nullptr) {
-    //     return "";
-    // }
-    // return head->getData();
+    
     Node *walker = head;
     std::string s  = "";
     while(walker != nullptr) {

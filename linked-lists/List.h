@@ -1,13 +1,16 @@
 #pragma once
 #include "Node.h"
-class List{
+
+class List {
     private:
         Node *head;
+
     public:
         List();
         ~List();
+        std::string locate(int index);
         void insert(std::string data);
+        void insert(std::string data, int index);
         std::string toString();
-        Node* locate(int index);
         void remove(int index);
 };
