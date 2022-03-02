@@ -6,17 +6,23 @@ List::List() {
 }
 
 List::~List() {
-    head = nullptr;
-    delete head;
+	Node *trailer;
+        std::cerr << "Destructing\n";	
+ 	while(head != nullptr) {
+		trailer = head;
+		head = head->getNext();
+		delete trailer;
+	}	
+ 
 }
 
 void List::insert(std::string data) {
     
-    Node *new_node = new Node(data);
+    Node *tmp = new Node(data);
 
     
-    new_node->setNext(head);
-    head = new_node;
+    tmp->setNext(head);
+    this->head = tmp;
 }
 
 std::string List::toString() {
@@ -44,19 +50,29 @@ std::string List::locate(int index) {
 }
 
 void List::insert(std::string data, int index) {
-    Node *new_node = new Node(data);
+    Node *tmp = new Node(data);
     Node *walker = head;
-    Node *temp;
+    Node *trailer = nullptr;
     
-    int counter = 0;
-    while(walker != nullptr && counter < index-1) {
+   
+    while(walker != nullptr && index > 0 {
+	trailer = walker;
         walker = walker->getNext();
-        counter++;
+       	index--;
     }
 
-    temp = walker->getNext();
-    walker->setNext(new_node);
-    new_node->setNext(temp);
+    if ( index > 0) {
+	throw std::out_of_range("Out of range");
+    }
+
+    if(trailer==nullptr) {
+	tmp->setNext(head);
+	head=tmp;
+    } else {
+
+    	trailer->setNext(tmp); 
+    	tmp.setNext(walker);
+    }
 }
 
 void List::remove(int index) {
