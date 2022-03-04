@@ -40,10 +40,11 @@ int main() {
     	list1->insert("d");
     	list1->insert("e");
     	std::cout << list1->toString() << std::endl; //e d c b a
-
+	std::cout << "Getting index 0" << std::endl;
+	std::cout << list1->locate(0) << std::endl; // e	
     	list1->insert("f", 2);
     	std::cout << list1->toString() << std::endl; //e d f c b a
-
+	std::cout << "Getting index 1" << std::endl;
     	std::cout << list1->locate(1) << std::endl; //d
 
     	list1->remove(3);

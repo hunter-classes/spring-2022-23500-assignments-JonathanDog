@@ -41,12 +41,16 @@ std::string List::locate(int index) {
     Node *walker = head;
 
     int counter = 0;
-    while(walker != nullptr && counter < index-1) {
+    while(walker != nullptr && counter < index) {
         walker = walker->getNext();
         counter++;
     }
-
-    return walker->getNext()->getData();
+    if(walker) {
+ 	    
+    	return walker->getData();
+    } else {
+	return "";
+    }
 }
 
 void List::insert(std::string data, int index) {
@@ -55,7 +59,7 @@ void List::insert(std::string data, int index) {
     Node *trailer = nullptr;
     
    
-    while(walker != nullptr && index > 0 {
+    while(walker != nullptr && index > 0) {
 	trailer = walker;
         walker = walker->getNext();
        	index--;
@@ -71,7 +75,7 @@ void List::insert(std::string data, int index) {
     } else {
 
     	trailer->setNext(tmp); 
-    	tmp.setNext(walker);
+    	tmp->setNext(walker);
     }
 }
 
