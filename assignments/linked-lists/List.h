@@ -8,9 +8,9 @@ class List {
     public:
         List();
         ~List();
-        std::string locate(int index);
-        void insert(std::string data);
-        void insert(std::string data, int index);
+        int locate(int index);
+        void insert(int data);
+        void insert(int data, int index);
         std::string toString();
         void remove(int index);
 };

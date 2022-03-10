@@ -16,7 +16,7 @@ List::~List() {
  
 }
 
-void List::insert(std::string data) {
+void List::insert(int data) {
     
     Node *tmp = new Node(data);
 
@@ -30,14 +30,14 @@ std::string List::toString() {
     Node *walker = head;
     std::string s  = "";
     while(walker != nullptr) {
-        s = s + walker->getData() + "-->";
+        s = s + std::to_string(walker->getData()) + "-->";
         walker = walker->getNext();
     }
     s += "nullptr";
     return s;
 }
 
-std::string List::locate(int index) {
+int List::locate(int index) {
     Node *walker = head;
 
     int counter = 0;
@@ -49,11 +49,11 @@ std::string List::locate(int index) {
  	    
     	return walker->getData();
     } else {
-	return "";
+	return -1;
     }
 }
 
-void List::insert(std::string data, int index) {
+void List::insert(int data, int index) {
     Node *tmp = new Node(data);
     Node *walker = head;
     Node *trailer = nullptr;
@@ -80,6 +80,13 @@ void List::insert(std::string data, int index) {
 }
 
 void List::remove(int index) {
+    if(index == 0 && head != nullptr) {
+	Node* newhead = head->getNext();
+	delete head;
+	head = newhead;
+    }    
+
+
     Node *walker = head;
     Node *temp;
 

@@ -1,12 +1,14 @@
-main: main.o Node.o List.o
-	g++ -o main main.o Node.o List.o
+main: main.o Node.o List.o OList.o
+	g++ -o main main.o Node.o List.o OList.o
 
 
-main.o: main.cpp Node.h
+main.o: main.cpp Node.h OList.h
 
 Node.o: Node.cpp Node.h
 
 List.o: List.cpp List.h Node.h
+
+OList.o: OList.cpp OList.h Node.h List.h
 
 
 clean:

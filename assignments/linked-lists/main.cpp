@@ -2,53 +2,74 @@
 
 #include "Node.h"
 #include "List.h"
-
+#include "OList.h"
 int main() {
-	//Node *p1 = new Node();
-	//p1 -> setData("hello");
+	List *l1 = new List();
+	std::cout << "Creating List\n";
 
-	//Node *p2 = new Node("World");
+	l1->insert(1);
+	l1->insert(2);
+	l1->insert(3);
+
+	std::cout << "Inserted values 1,2, and 3" << std::endl;
+	std::cout << "Printing the list" << std::endl;
 	
-	//p1 -> setNext(p2);
+	std::cout << l1->toString() << std::endl;
 
-	//std::cout << p1->getData() << "\n";
-	//std::cout << p2->getData() << "\n";
-	//std::cout << p1->getNext()->getData() << "\n";
+	std::cout << "Second element of the list is: " << l1->locate(1) << std::endl;
 
-	//p2 = new Node("!");
+	std::cout << "Third element of the list is: " << l1->locate(2) << std::endl;
 
-	//p1->getNext()->setNext(p2);
+	std::cout << "Removing the second element and printing list" << std::endl;
+	l1->remove(1);
+	std::cout << l1->toString() << std::endl;
 
-	//std::cout << p1->getData() << "\n";
-	//std::cout << p1->getNext()->getData() << "\n";
-	//std::cout << p1->getNext()->getNext()->getData() << "\n";
+	std::cout << "l1 is being delted" << std::endl;
+	delete l1;
+	std::cout << "Testing OList" << std::endl;
 
-	//Node *walker = p1;
-	//std::cout << walker->getData() << "\n";
+	OList *OrderedList = new OList();
 
-	//walker = walker -> getNext();
-	//std::cout << walker->getData() << "\n";
+	OrderedList->insert(10);
+	OrderedList->insert(-1);
+	OrderedList->insert(5);
+	OrderedList->insert(6);
 
-	//walker = walker->getNext();
-	//std::cout << walker->getData() << "\n";
-	//return 0;
+	std::cout << "Inserted 10, -1, 5, 6" << std::endl;
+	std::cout << "Printing List: " << OrderedList->toString() << "\n";
+
+	std::cout << std::boolalpha;
+
+	std::cout << "Does OrderedList have 5: " << OrderedList->contains(5) << std::endl;
+
+	std::cout << "Does OrderedList have 20: " << OrderedList -> contains(20) << std::endl;
+
+	std::cout << "Does OrderedList have -1: " << OrderedList -> contains(-1) << std::endl;
+
+	std::cout << "Value of first element: " << OrderedList -> get(0) << std::endl;;
+
+	std::cout << "Value of third element: " << OrderedList -> get(2) << std::endl;
+
+	std::cout << "Removing first element" << std::endl;
+	OrderedList -> remove(0);
+
+	std::cout << OrderedList->toString() << std::endl;
+
+	std::cout << "Removing second element" << std::endl;
+        OrderedList -> remove(1);
+
+        std::cout << OrderedList->toString() << std::endl;
+
+	OrderedList->reverse();
+	std::cout << OrderedList -> toString() << std::endl;
+
+	OrderedList->reverse();
+        std::cout << OrderedList -> toString() << std::endl;
+
+	delete OrderedList;
 	
-	List *list1 = new List();
-    	list1->insert("a");
-    	list1->insert("b");
-    	list1->insert("c");
-    	list1->insert("d");
-    	list1->insert("e");
-    	std::cout << list1->toString() << std::endl; //e d c b a
-	std::cout << "Getting index 0" << std::endl;
-	std::cout << list1->locate(0) << std::endl; // e	
-    	list1->insert("f", 2);
-    	std::cout << list1->toString() << std::endl; //e d f c b a
-	std::cout << "Getting index 1" << std::endl;
-    	std::cout << list1->locate(1) << std::endl; //d
+	std::cout << "Deleted List" << std::endl;	
 
-    	list1->remove(3);
-    	std::cout << list1->toString() << std::endl; //e d f c b a
-    	list1->~List();
-    	std::cout << list1->toString() << std::endl; //nullptr
+
+
 }
