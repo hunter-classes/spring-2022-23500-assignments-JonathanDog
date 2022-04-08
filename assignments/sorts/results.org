@@ -1,0 +1,42 @@
+* Results of Sorting Algorithms (Merge, QuickSort, QuickSort2)
+All tests used a max value of 100
+The other value shown is the amount of tiems
+
+* Merge Sort
+
+- 1000 - 5ms 
+- 10000 - 19ms
+- 100000 - 165ms
+- 1000000 - 1636ms
+
+* Quick Sort
+
+Bad Pivot
+- 1000 - 3ms
+- 10000 - 20ms
+- 100000 - 862ms
+- Too Long
+
+Good Pivot
+- 1000 - 3ms
+- 10000 - 19ms
+- 100000 - 840ms
+- Too Long
+
+* Quick Sort 2
+
+Bad Pivot 
+- 1000 - 0ms
+- 10000 - 3ms
+- 100000 - 16ms
+- 1000000 - 120ms
+
+Good Pivot
+- 1000 - 0ms
+- 10000 - 3ms
+- 100000 - 15ms
+- 1000000 - 113ms
+
+Merge sort was better then the first quick sort when the amount of items was much higher. But The second quick sort was almost infintely quicker then the others. It was able to sort 10 the items of what the first quick sort sorted 10 times quicker. It seemed like changing the pivot did not have as much effect as I thought it would. 
+
+
