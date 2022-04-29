@@ -32,7 +32,7 @@ int Stack::top()
 
 bool Stack::is_empty()
 {
-	return (list.toString() == "head-->nullptr");
+	return (list.toString() == "nullptr");
 }
 
 
