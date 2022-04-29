@@ -61,6 +61,8 @@ TEST_CASE("Queue and all its functions") {
 
 	for(int i = 0; i<7; i++) {
 		CHECK(q->dequeue() == i);
+		if(i != 6)
+			CHECK(q->front() == i + 1);
 	}
 	CHECK(q->is_empty());
 	CHECK_THROWS_AS(q->dequeue(), std::out_of_range);
